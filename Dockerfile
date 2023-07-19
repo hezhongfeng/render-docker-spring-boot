@@ -1,15 +1,9 @@
 #
 # Build stage
 #
-# Use the official maven/Java 8 image to create a build artifact.
-# https://hub.docker.com/_/maven
-FROM gradle:jdk17-jammy as builder
-#
-# # Copy local code to the container image.
+FROM gradle:jdk17-jammy AS builder
 COPY . .
-#
-# # Build a release artifact.
-RUN gradle clean build
+RUN gradle build
 
 #
 # Package stage
